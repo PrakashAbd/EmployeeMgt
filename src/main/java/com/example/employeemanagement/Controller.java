@@ -21,11 +21,11 @@ public class Controller
 	LoginServiceImpl loginService = con.getBean("loginService",LoginServiceImpl.class);
 	EmployeeServiceImpl employeeService = con.getBean("empService",EmployeeServiceImpl.class);
 	
-	@RequestMapping("/EmpMgt")
-	public ModelAndView func1()
+	/*@RequestMapping("/EmpMgt")
+	/public ModelAndView func1()
 	{
 		return new ModelAndView("userpage");
-	}
+	}*/
 	
 	@RequestMapping("/EmpMgt/checkLogin")
 	public ResponseEntity<String> func3(@RequestBody Login obj)							//Validate the login details
