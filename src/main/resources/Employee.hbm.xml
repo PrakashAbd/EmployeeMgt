@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 29, 2018 12:34:34 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.example.entity.Employee" table="EMPLOYEE">
+        <id name="empId" type="java.lang.String">
+            <column name="EMPID" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="fullName" type="java.lang.String">
+            <column name="FULLNAME" />
+        </property>
+        <property name="emailId" type="java.lang.String">
+            <column name="EMAILID" />
+        </property>
+        <property name="dob" type="java.lang.String">
+            <column name="DOB" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="GENDER" />
+        </property>
+        <property name="securityQuestion" type="java.lang.String">
+            <column name="SECURITYQUESTION" />
+        </property>
+        <property name="securityAnswer" type="java.lang.String">
+            <column name="SECURITYANSWER" />
+        </property>
+    </class>
+</hibernate-mapping>
