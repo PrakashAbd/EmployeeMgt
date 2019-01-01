@@ -51,12 +51,27 @@ public class Mockito
 
 		}
 		
+		/*@Test
+		public void testAddEmployee() throws Exception
+		{	
+			org.mockito.Mockito.when(employeeDao.addEmployee(empList.get(0))).thenReturn("Inserted Successfully");
+			assertEquals(employeeService.addEmployee(empList.get(0),con), "Inserted Successfully");
+		}*/
+		
 		@Test
 		public void testDisplayAll() 
 		{	
 			org.mockito.Mockito.when(employeeDao.displayAll()).thenReturn(empList);
 			String name = employeeService.displayAll(con).get(0).getUsername();
 			System.out.println(name);
+			System.out.println(empList.get(0).getUsername());
 			assertEquals(empList.get(0).getUsername(),name);
+		}
+		
+		@Test
+		public void testDisplayById() 
+		{
+			org.mockito.Mockito.when(employeeDao.displayById("101")).thenReturn(empList.get(0));
+			assertEquals("Dinesh", employeeService.displayById("101",con).getUsername());
 		}
 }

@@ -22,7 +22,7 @@ public class Controller
 	EmployeeServiceImpl employeeService = con.getBean("empService",EmployeeServiceImpl.class);
 	
 	@RequestMapping("/EmpMgt/checkLogin")
-	public ResponseEntity<String> func3(@RequestBody Login obj)
+	public ResponseEntity<String> func3(@RequestBody Login obj)							//Validate the login details
 	{
 		int num = loginService.validate(obj);
 		return new ResponseEntity<String>( ((num > 0)? ( (num==1)? "Admin" : "Employee has authenticated successfully") : "Invalid Username and Password"),HttpStatus.OK);
@@ -30,10 +30,10 @@ public class Controller
 	
 	
 	@RequestMapping(value="/EmpMgt/InsertData")
-	public ResponseEntity<String> func4(@RequestBody Employee u)
+	public ResponseEntity<String> func4(@RequestBody Employee u)						//Get the values entered by user using @RequestBody
 	{
 		try {
-			employeeService.addEmployee(u,con);
+			employeeService.addEmployee(u,con);											//Insert the empoyee details into DB
 			Login login = Config.getLogin();
 			login.setUsername(u.getUsername());
 			login.setPassword(u.getPassword());
@@ -47,7 +47,7 @@ public class Controller
 		}
 	}
 	
-	@RequestMapping("/EmpMgt/getAllEmpDetails")
+	@RequestMapping("/EmpMgt/getAllEmpDetails")											//Get all employee Details from DB
 	public ResponseEntity<List<Employee>> func4()
 	{
 		List<Employee> list = employeeService.displayAll(con);
@@ -55,7 +55,7 @@ public class Controller
 	}
 	
 	
-	@RequestMapping("/EmpMgt/getByEmpId/{empId}")
+	@RequestMapping("/EmpMgt/getByEmpId/{empId}")										//Get an employee using employeeId from DB
 	public  ResponseEntity<Employee> func5(@PathVariable String empId)
 	{
 		return new ResponseEntity<Employee>(employeeService.displayById(empId,con),HttpStatus.OK);
