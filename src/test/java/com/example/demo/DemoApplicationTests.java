@@ -51,12 +51,12 @@ public class DemoApplicationTests extends TestCase
 		org.mockito.Mockito.when(employeeDao.displayAll()).thenReturn(empList);
 	}
 	
-	/*@Test
+	@Test
 	public void testAddEmployee() throws Exception
 	{	
 		org.mockito.Mockito.when(employeeDao.addEmployee(empList.get(0))).thenReturn("Inserted Successfully");
 		assertEquals(employeeService.addEmployee(empList.get(0)), "Inserted Successfully");
-	}*/
+	}
 	
 	@Test
 	public void testDisplayById() 
@@ -73,6 +73,7 @@ public class DemoApplicationTests extends TestCase
 		
 		assertEquals(empList.get(0).getEmailId(),employeeService.displayAll(con).get(0).getEmailId());
 	}*/
+	
 	@Test
 	public void contextloads()
 	{
